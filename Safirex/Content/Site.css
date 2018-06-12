@@ -1,0 +1,348 @@
+﻿
+/* layout full screen */
+.container-fluid {
+    /*background-color: #E7C567;*/
+    padding: 0px 0px 0px 0px;
+}
+
+/* ronaldo faria*/
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists */
+hr {
+    height: 0;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: 1px solid #e3e3e3;
+    border-radius: 1px;
+    align-content: center;
+}
+
+.box {
+    min-height: 100%; /*660px;*/
+    height: inherit;
+    width: inherit;
+    padding: 19px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 1px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+header {
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    font-size: 25px;
+}
+
+#info {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+a {
+    color: #074E8C;
+}
+
+.force-overflow {
+    min-height: 450px;
+}
+
+/* ajuste do icono do botao pesquisar/incluir  */
+.btn-lg {
+    padding: 2px 6px 6px 6px;
+    font-size: 0.9em;
+    line-height: 1.33;
+    border-radius: 4px;
+    white-space: normal;
+}
+
+/* ajuste para gerar msg em 3 ou mais linhas*/
+.tooltip {
+    position: fixed;
+    z-index: 1030;
+    display: block;
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    visibility: visible;
+    white-space: normal;
+    width: 210px;
+    height: 50px;
+}
+
+
+/* Create two equal columns that floats next to each other */
+.div-grid {
+    /* Atributo(s) necessários para o funcionamento completo. */
+    overflow-x: scroll auto;
+    white-space: nowrap;
+    /* Atributo(s) apenas para facilitar a visualização "fru-fru". */
+    overflow-y: hidden;
+    border-width: 2px;
+    border-color: #d43f3a; 
+}
+
+.div-datarecord {
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: scroll;
+    overflow-y: visible;
+    width: 90.3333334%;
+    float: left;
+}
+
+table.table-record {
+    padding-top: 0;
+    padding-right: 0;
+    font-family: verdana,arial,sans-serif;
+    font-size: 0.9em;
+    background-color: #f5f5f5;
+    color: #333333;
+    border-width: 1px;
+    border-color: #e3e3e3;
+    border-collapse: collapse;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+    table.table-record th {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #e3e3e3;
+        background-color: #dedede;
+        padding: 4.9789px;
+        height: 34px;
+    }
+
+    table.table-record td {
+        min-width: 115px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #e3e3e3;
+        background-color: #ffffff;
+        padding: 4.9789px;
+        height: 100%;
+        width: 100%;
+    }
+
+
+.div-command {
+    /*pulo do gato para colar a div no topo*/
+    padding-bottom: 22.3333px;
+    display: inline-block;
+    padding-left: 0;
+    overflow-y: visible;
+    position: relative;
+    width: 9.3333334%;
+}
+
+table.table-command {
+    padding-top: 0;
+    font-family: verdana,arial,sans-serif;
+    font-size: 0.9em;
+    background-color: #f5f5f5;
+    color: #333333;
+    border-width: 1px;
+    border-color: #e3e3e3;
+    border-collapse: collapse;
+    white-space: nowrap;
+    width: 100%;
+}
+    table.table-command th {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #e3e3e3;
+        background-color: #dedede;
+        padding: 4.9789px;
+        height: 34px;
+    }
+
+    table.table-command td {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #e3e3e3;
+        background-color: #ffffff;
+        padding: 4.9789px;
+        height: 100%; /*height: 34px;*/
+    }
+
+/* esconde botão na grid para equipara tamnhos entre grid de dados e grid comandos*/
+.hidden-btn-grid {
+    float: right;
+    border: 1px solid transparent;
+    border-bottom-color: #ffffff;
+    cursor: default;
+    opacity: 0.00000010;
+}
+
+
+        /* cores de botões */
+    .btn-primary-color {
+            background-color: #428bca !important;
+            color: #ffffff;
+            border-color: #357ebd;
+        }
+
+        .btn-primary-color-dark {
+            background-color: #073379 !important;
+            color: #ffffff;
+            border-color: #357ebd;
+        }
+
+        .btn-secondary-color {
+            background-color: #1c082a !important;
+            color: #d43f3a;
+            border-color: #d43f3a;
+        }
+
+        .btn-secondary-color-dark {
+            background-color: #9933cc !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+.btn-default-color {
+    background-color: #ffffff !important;
+    color: #ffffff;
+    border-color: #cccccc;
+}
+
+        .btn-default-color-dark {
+            background-color: #00695c !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-info-color {
+            background-color: #33b5e5 !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-info-color-dark {
+            background-color: #0099cc !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-success-color {
+            background-color: #00c851 !important;
+            color: #ffffff;
+            border-color: #4cae4c;
+        }
+
+        .btn-success-color-dark {
+            background-color: #007e33 !important;
+            color: #ffffff;
+            border-color: #4cae4c;
+        }
+
+        .btn-warning-color {
+            background-color: #ffbb33 !important;
+            color: #ffffff;
+            border-color: #333333;
+        }
+
+        .btn-warning-color-dark {
+            background-color: #ff8800 !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-danger-color {
+            background-color: #ff3547 !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-danger-color-dark {
+            background-color: #cc0000 !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-elegant-color {
+            background-color: #2e2e2e !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-elegant-color-dark {
+            background-color: #212121 !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-black-color {
+            background-color: #8e9095 !important;
+            color: #ffffff;
+            border-color: #333333;
+        }
+
+        .btn-black-color-dark {
+            background-color: #604545 !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-unique-color {
+            background-color: #3f729b !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-unique-color-dark {
+            background-color: #808080 !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-special-color {
+            background-color: #37474f !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+        .btn-special-color-dark {
+            background-color: #263238 !important;
+            color: #ffffff;
+            border-color: #d43f3a;
+        }
+
+
+

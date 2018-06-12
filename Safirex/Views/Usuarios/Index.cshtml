@@ -1,0 +1,71 @@
+﻿@model PagedList.IPagedList<Safirex.Models.Domain.Usuario>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Index", "Usuarios", FormMethod.Get))
+
+{
+<div class="container">
+    <table>
+        <tr>
+            <th>
+                <h4>Segurança - Pesquisa de Usuários: </h4>
+            </th>
+            <th>
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input type="text" size="250" name="search" value="@ViewBag.search" class="form-control" placeholder="digite o texto de pesquisa" style="width:100%;" />
+                </div>
+            </th>
+            <th>
+                <button formaction="@Url.Action("Index", "Usuarios")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Digite o texto e clique aqui para pesquisar na base de dados.' class="btn btn-success btn-lg glyphicon glyphicon-search title"></button>
+            </th>
+            <th>
+                <button formaction="@Url.Action("Create", "Usuarios")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Para incluir o novo registro clique aqui e será aberto uma nova tela de cadastro.' class="btn btn-primary btn-lg glyphicon glyphicon-plus title"></button>
+            </th>
+        </tr>
+    </table>
+    <hr />
+    <table class="gridtable table-hover">
+        <tr>
+            <th>
+                @Html.ActionLink("Nome", "Index", new { sortOrder = ViewBag.Nome, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @Html.ActionLink("Login", "Index", new { sortOrder = ViewBag.Login, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                Senha
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                *^~*%*&*!%
+            </td>
+            <td>
+                <button formaction="@Url.Action("Edit", "Usuarios", new { id = item.UsuarioId })" type="submit" data-toggle="tooltip" data-placement="bottom" title='Para alterar o registro clique aqui e será aberto uma tela com os dados para alteração.' id="editItem"  class="btn btn-primary btn-lg glyphicon glyphicon-edit"></button>
+                <button formaction="@Url.Action("Delete", "Usuarios", new { id = item.UsuarioId })" type="submit" data-toggle="tooltip" data-placement="bottom" title='Para excluir o registro clique aqui e será solicitado a confirmação da operação.' id="deleteItem"  class="btn btn-danger  btn-lg glyphicon glyphicon-trash"></button>
+            </td>
+        </tr>
+}   </table>
+    <hr />
+    <div data-toggle="tooltip" data-placement="left" title='Clique aqui para avançar a página ou voltar para anterior.'>
+        @Html.PagedListPager(Model, page => Url.Action("Index", null, new { page, search = ViewBag.search }))
+    </div>
+</div>
+
+}
+@section Scripts {
+}
+

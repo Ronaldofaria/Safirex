@@ -1,0 +1,19 @@
+﻿@helper SubmitButton(string text, string controller, string action)
+    {
+        var uh = new System.Web.Mvc.UrlHelper(Context.Request.RequestContext);
+        string url = @uh.Action(action, controller, null);
+        <input type=button onclick="(
+                                       function(e)
+                                                 {
+                                                   $(e).parent().attr('action', '@url'); //rewrite action url
+                                                   //create a submit button to be clicked and removed, so that onsubmit is triggered
+                                                   var form = document.getElementById($(e).parent().attr('id'));
+                                                   var button = form.ownerDocument.createElement('input');
+                                                   button.style.display = 'none';
+                                                   button.type = 'submit';
+                                                   form.appendChild(button).click();
+                                                   form.removeChild(button);
+                                                  }
+                                      )(this)" value="@text" />
+}
+

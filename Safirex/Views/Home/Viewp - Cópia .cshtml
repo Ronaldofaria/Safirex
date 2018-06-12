@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h2>Two Equal Columns</h2>
+    <div class="">
+        <div class="columntabledata bootgrid-wrapper" style="overflow-x:scroll;overflow-x:visible;">
+            <table>
+                @for (var i = 1; i < 11; i++)
+                   {
+                <tr>
+                    @for (var y = 1; y < 16; y++)
+                    {
+                        <td>
+                            <p>coluna @y</p>
+                        </td>
+                    }
+                </tr>
+                    }
+            </table>
+        </div>
+        <div class="columntablecommand" style="background-color:#bbb;">
+            <table>
+                @for (var i = 1; i < 11; i++)
+                {
+                    <tr>
+                        <td>
+                            <p>Line @i</p>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    <script>
+    </script>
+}
+

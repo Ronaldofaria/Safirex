@@ -1,0 +1,129 @@
+﻿@model PagedList.IPagedList<Safirex.Models.ClassificacaoEstrutura.Secretaria>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Cadastros - Pesquisa de Secretaria";
+}
+@using (Html.BeginForm())
+{
+<div class="container-fluid">
+    <table>
+        <tr>
+            <th>
+                <h4>@ViewBag.Title</h4>
+            </th>
+            <th>
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input type="text" size="250" name="search" value="@ViewBag.search" class="form-control" placeholder="digite o texto de pesquisa" style="width:100%;" />
+                </div>
+            </th>
+            <th width="90px">
+                <button type="submit" formaction="@Url.Action("Index", "Secretarias")" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Digite o texto e clique aqui para pesquisar na base de dados.' class="btn btn-black-color btn-lg glyphicon glyphicon-search title"></button>
+                <button type="submit" formaction="@Url.Action("Create", "Secretarias")" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Para incluir o novo registro clique aqui e será aberto uma nova tela de cadastro.' class="btn btn-success-color btn-lg glyphicon glyphicon-plus title"></button>
+            </th>
+        </tr>
+    </table>
+    <hr />
+    <div class="div-grid"> 
+        <div class="div-datarecord"> 
+            <table class="table-record table-hover">
+                <tr>
+                    <th>
+                        @Html.Label("Governo")
+                    </th>
+                    <th>
+                        @Html.Label("Sigla")
+                    </th>
+                    <th>
+                        @Html.Label("Secretaria")
+                    </th>
+                    <th>
+                        @Html.Label("Cnpj")
+                    </th>
+                    <th>
+                        @Html.Label("Endereco")
+                    </th>
+                    <th>
+                        @Html.Label("Cidade")
+                    </th>
+                    <th>
+                        @Html.Label("Bairro")
+                    </th>
+                    <th>
+                        @Html.Label("Uf")
+                    </th>
+                    <th>
+                        @Html.Label("Cep")
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.Governo.Nome)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.Sigla)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.CNPJ)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.Endereco)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.Cidade)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.Bairro)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.Uf)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.Cep)
+                            <button class="btn btn-default btn-lg hidden-btn-grid">.</button>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="div-command">
+            <table class="table-command table-hover">
+                <tr>
+                    <th>
+                        Opções
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <button type="submit" formaction="@Url.Action("Edit", "Secretarias", new { id = item.SecretariaId })" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Para alterar o registro clique aqui e será aberto uma tela com os dados para alteração.' id="editItem" class="btn btn-primary-color btn-lg glyphicon glyphicon-pencil"></button>
+                    <button type="submit" formaction="@Url.Action("Details", "Secretarias", new { id = item.SecretariaId })" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Para consultar o registro clique aqui e será apresentado a tela de consulta.' id="consultaItem" class="btn btn-default btn-lg glyphicon glyphicon-check"></button>
+                    <button type="submit" formaction="@Url.Action("Delete", "Secretarias", new { id = item.SecretariaId })" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Para excluir o registro clique aqui e será solicitado a confirmação da operação.' id="deleteItem" class="btn btn-danger-color  btn-lg glyphicon glyphicon-trash"></button>
+                </td>
+            </tr>
+}
+            </table>
+        </div>
+    </div>
+    <p />
+    <hr />
+    <div data-toggle="tooltip" data-placement="left" title='Clique aqui para avançar a página ou voltar para anterior.'>
+        @Html.PagedListPager(Model, page => Url.Action("Index", null, new { page, search = ViewBag.search }))
+    </div>
+</div>
+}
+
+@section Scripts {
+    <script type="text/jscript">
+
+    </script>
+}
+
+

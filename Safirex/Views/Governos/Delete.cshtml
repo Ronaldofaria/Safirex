@@ -1,0 +1,38 @@
+﻿@model Safirex.Models.ClassificacaoEstrutura.Governo
+
+@{
+    ViewBag.Title = "Cadastros - Exclusão de Esfera";
+}
+<h4>@ViewBag.Title</h4>
+<hr />
+<h3>Você confirma a excluão do registro?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Esfera.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Esfera.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </dl>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <div class="col-md-offset-2">
+                <button formaction="@Url.Action("Delete", "Governos")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Confirma a exclusão do registro e retorna.' value="Delete" class="btn btn-danger btn-lg glyphicon glyphicon-ok"></button>
+                <button formaction="@Url.Action("Index", "Governos")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Cancela a exclusão do registro e retorna.' class="btn btn-warning btn-lg glyphicon glyphicon-remove"></button>
+            </div>
+        </div>
+    }
+</div>

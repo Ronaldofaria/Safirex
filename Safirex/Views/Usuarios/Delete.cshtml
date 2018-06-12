@@ -1,0 +1,46 @@
+﻿@model Safirex.Models.Domain.Usuario
+@{
+     ViewBag.Title = "Segurança - Exclusão de Usuário";
+}
+<h4>@ViewBag.Title</h4>
+<hr />
+<h3>Você confirma a excluão do registro?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeCompleto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeCompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Senha)
+        </dt>
+
+        <dd>
+            **********
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        <div class="form-actions no-color">
+            <div class="col-md-offset-2">
+                <button formaction="@Url.Action("Delete", "Usuarios")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Confirma a exclusão do registro e retorna.' value="Delete" class="btn btn-success btn-lg glyphicon glyphicon-ok"></button>
+                <button formaction="@Url.Action("Index", "Usuarios")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Cancela a exclusão do registro e retorna.' class="btn btn-warning btn-lg glyphicon glyphicon-remove"></button>
+            </div>
+        </div>
+    }
+</div>
+}

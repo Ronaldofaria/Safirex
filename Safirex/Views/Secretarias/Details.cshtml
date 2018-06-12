@@ -1,0 +1,91 @@
+﻿@model Safirex.Models.ClassificacaoEstrutura.Secretaria
+
+@{
+    ViewBag.Title = "Cadastros - Consulta de Secretaria";
+}
+<h4>@ViewBag.Title</h4>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Governo.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Governo.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sigla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sigla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CNPJ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNPJ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cep)
+        </dd>
+
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+        <hr />
+        <div class="col-md-offset-2">
+            <button formaction="@Url.Action("Index", "Secretarias")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Cancela a consulta do registro e retorna.' class="btn btn-warning btn-lg glyphicon glyphicon-remove"></button>
+        </div>
+}

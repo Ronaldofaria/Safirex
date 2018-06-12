@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+@using Safirex.App_Start;
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sistema Orçamentário e Financeiro</title>
+    <script type="text/jscript">
+        window.setTimeout(function () {
+            $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                $(this).remove();
+            });
+        }, 4000);
+    </script>
+    @*inclusão ronaldo faria*@
+    @Styles.Render("~/Content/cssx")
+    @*normal .Net*@
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css")
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Safirex - Sistema Orçamentário e Financeiro -", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orcamentário<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Orçamento Anual", "Index", "Orgaos")</li>
+                            <li>@Html.ActionLink("Nota de Despesa", "Index", "Favorecidos")</li>
+                            <li>@Html.ActionLink("Nota de Credito", "Index", "Comarcas")</li>
+                            <li>@Html.ActionLink("Nota de Empenho", "Index", "Varas")</li>
+                            <li>@Html.ActionLink("Nota de Liquidação", "Index", "Varas")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Financeiro<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Lançamento de Pagamento", "Index", "Orgaos")</li>
+                            <li>@Html.ActionLink("Ordem Bancaria", "Index", "Favorecidos")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Entrada Processo", "Index", "EntradaProcessos")</li>
+                            <li>@Html.ActionLink("Orgão", "Index", "Orgaos")</li>
+                            <li>@Html.ActionLink("Favorecido", "Index", "Favorecidos")</li>
+                            <li>@Html.ActionLink("Comarca", "Index", "Comarcas")</li>
+                            <li>@Html.ActionLink("Vara", "Index", "Varas")</li>
+                            <li>@Html.ActionLink("Banco", "Index", "Bancos")</li>
+                            <li>@Html.ActionLink("Agência", "Index", "Agencias")</li>
+                            <li>@Html.ActionLink("Conta Corrente", "Index", "ContaCorrentes")</li>
+                            <li>@Html.ActionLink("Remessa", "Index", "Remessas")</li>
+                            <li>@Html.ActionLink("Tipo de Evento", "Index", "TipoEventos")</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/Home/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li>
+                        <a href="@Url.Action("ScreenSize","Home")">
+                            @if (Session["screenSize"] == "container body-content;")
+    {
+                        <span class="glyphicon glyphicon-resize-full"></span>
+}
+else
+{
+                        <span class="glyphicon glyphicon-resize-small"></span>
+}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="@Session["screenSize"]" id="layout">
+
+        @ViewBag.screenSize
+        @Session["screenSize"]
+
+        <h3></h3>
+        <div class="box">
+            <div class="box">
+
+
+
+                @if (@ViewBag.MessageErro != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Erro!</strong> @ViewBag.MessageErro
+                </div>
+        }
+                @if (@ViewBag.MessageInfo != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Successo!</strong> @ViewBag.MessageInfo
+                </div>
+        }
+                @RenderBody()
+            </div>
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Secretaria de Estado de Saúde - Sistema Orçamentário e Financeiro</p>
+        </footer>
+    </div>
+
+    @*normal .Net*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @*incusão do Ronaldo*@
+    @Scripts.Render("~/bundles/mask")
+    @Scripts.Render("~/bundles/jquerymin")
+    @Scripts.Render("~/bundles/combobox")
+
+
+    @*para persolizar as legendas quando o mouse passa pelos botões*@
+    <script type="text/jscript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

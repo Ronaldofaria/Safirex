@@ -11,27 +11,34 @@ using Safirex.Models.ClassificacaoOrigem;
 
 namespace Safirex.Controllers
 {
-    public class EsferasController : Controller
+    public class EsferasController : BaseController
     {
-        private SafirexContext db = new SafirexContext();
 
         // GET: Esferas
         public ActionResult Index(int? page, string search = "")
         {
 
-            ViewBag.search = search;
-            ViewBag.page = page;
-
-            int pageSize = 08;
-            int pageNumber = (page ?? 1);
-
-            var model = db.Esferas.ToList();
-            if (search != "")
+            try
             {
-                model = db.Esferas.Where(prop => prop.Nome.Contains(search)).ToList();
+                ViewBag.search = search;
+                ViewBag.page = page;
+
+                int pageSize = 08;
+                int pageNumber = (page ?? 1);
+
+                var model = db.Esferas.ToList();
+                if (search != "")
+                {
+                    model = db.Esferas.Where(prop => prop.Nome.Contains(search)).ToList();
+                }
+                return View(model.ToPagedList(pageNumber, pageSize));
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = "Erro de aplicação entre em contato com o Suporte!" + ex.Message;
             }
 
-            return View(model.ToPagedList(pageNumber, pageSize));
+            return View();
 
         }
 

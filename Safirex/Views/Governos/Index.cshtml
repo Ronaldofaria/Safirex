@@ -7,7 +7,7 @@
 
 @using (Html.BeginForm())
 {
-<div class="container">
+<div class="container-fluid">
     <table>
         <tr>
             <th>
@@ -32,7 +32,7 @@
         <table class="table-record table-hover">
             <tr>
                 <th>
-                    Esfera
+                    Gestão
                 </th >
                 <th>
                     Governo
@@ -43,7 +43,7 @@
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Esfera.Nome)
+                    @Html.DisplayFor(modelItem => item.Gestao.Nome)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nome)

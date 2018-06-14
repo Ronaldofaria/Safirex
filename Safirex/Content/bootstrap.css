@@ -5753,14 +5753,14 @@ body.modal-open,
 }
 
 .tooltip {
-  position: absolute;
-  z-index: 1030;
-  display: block;
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  visibility: visible;
+    position: absolute;
+    z-index: 1030;
+    display: block;
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    visibility: visible;
 }
 
 .tooltip.in {

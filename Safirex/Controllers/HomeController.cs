@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Safirex.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
 
         public ActionResult Viewp()
@@ -22,26 +22,6 @@ namespace Safirex.Controllers
             return View();
         }
 
-        public ActionResult ScreenSize()
-        {
-
-            ViewBag.urlVolta = Session["urlVolta"];
-            ViewBag.screenSize = Session["screenSize"];
-
-            if (ViewBag.screenSize == "container-fluid body-content;")
-            {
-               Session["screenSize"] = "container body-content;";
-               ViewBag.screenSize = Session["screenSize"];
-            }
-            else
-            {
-                Session["screenSize"] = "container-fluid body-content;";
-                ViewBag.screenSize = Session["screenSize"];
-            }
-            return Redirect(ViewBag.urlVolta);
-        }
-
-
         [HttpPost]
         public ActionResult Login(string userLogin, string userPassword, string MessageErro, string MessageInfo)
         {
@@ -50,14 +30,13 @@ namespace Safirex.Controllers
 
             return View("Index");
         }
-
+    
         public ActionResult Index()
         {
             Session["urlVolta"] = ((System.Web.HttpRequestWrapper)Request).RawUrl;
             if (Session["screenSize"] == null)
             {
                 Session["screenSize"] = "container body-content;";
-                ViewBag.screenSize = Session["screenSize"];
             }
             return View();
         }

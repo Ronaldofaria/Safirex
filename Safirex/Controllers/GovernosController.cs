@@ -11,9 +11,8 @@ using Safirex.Models.ClassificacaoEstrutura;
 
 namespace Safirex.Controllers
 {
-    public class GovernosController : Controller
+    public class GovernosController : BaseController
     {
-        private SafirexContext db = new SafirexContext();
 
         // GET: Governos
         public ActionResult Index(int? page, string search = "")
@@ -52,7 +51,7 @@ namespace Safirex.Controllers
         // GET: Governos/Create
         public ActionResult Create()
         {
-            ViewBag.EsferaId = new SelectList(db.Esferas, "EsferaId", "Nome");
+            ViewBag.GestaoId = new SelectList(db.Gestaos, "GestaoId", "Nome");
             return View();
         }
 
@@ -61,7 +60,7 @@ namespace Safirex.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GovernoId,EsferaId,Nome")] Governo governo)
+        public ActionResult Create([Bind(Include = "GovernoId,GestaoId,Nome")] Governo governo)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +69,7 @@ namespace Safirex.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EsferaId = new SelectList(db.Esferas, "EsferaId", "Nome", governo.EsferaId);
+            ViewBag.GestaoId = new SelectList(db.Gestaos, "GestaoId", "Nome", governo.GestaoId);
             return View(governo);
         }
 
@@ -86,7 +85,7 @@ namespace Safirex.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EsferaId = new SelectList(db.Esferas, "EsferaId", "Nome", governo.EsferaId);
+            ViewBag.GestaoId = new SelectList(db.Gestaos, "GestaoId", "Nome", governo.GestaoId);
             return View(governo);
         }
 
@@ -95,7 +94,7 @@ namespace Safirex.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GovernoId,EsferaId,Nome")] Governo governo)
+        public ActionResult Edit([Bind(Include = "GovernoId,GestaoId,Nome")] Governo governo)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +102,7 @@ namespace Safirex.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EsferaId = new SelectList(db.Esferas, "EsferaId", "Nome", governo.EsferaId);
+            ViewBag.GestaoId = new SelectList(db.Gestaos, "GestaoId", "Nome", governo.GestaoId);
             return View(governo);
         }
 

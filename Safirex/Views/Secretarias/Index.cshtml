@@ -21,6 +21,9 @@
             <th width="90px">
                 <button type="submit" formaction="@Url.Action("Index", "Secretarias")" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Digite o texto e clique aqui para pesquisar na base de dados.' class="btn btn-black-color btn-lg glyphicon glyphicon-search title"></button>
                 <button type="submit" formaction="@Url.Action("Create", "Secretarias")" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Para incluir o novo registro clique aqui e será aberto uma nova tela de cadastro.' class="btn btn-success-color btn-lg glyphicon glyphicon-plus title"></button>
+            
+                <input type='button' value='Voltar sempre para ultima pagina chamada' onclick='history.go(-1)'/>
+
             </th>
         </tr>
     </table>

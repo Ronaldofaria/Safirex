@@ -7,6 +7,7 @@ namespace Safirex
         public static void RegisterBundles(BundleCollection bundles)
         {
 
+            /*
             // Scripts incluido pelo ronaldo faria
             bundles.Add(new ScriptBundle("~/Scripts/methods_pt.js"));
             bundles.Add(new ScriptBundle("~/bundles/mask").Include("~/Scripts/jquery.mask.js"));
@@ -25,6 +26,32 @@ namespace Safirex
 
             // Styles de uso padrao .NET
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css", "~/Content/site.css"));
+            */
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/Scripts/jquery-1.11.1.min.js",
+                        "~/Scripts/jquery-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.validate*"));
+
+            // Use a versão em desenvolvimento do Modernizr para desenvolver e aprender. Em seguida, quando estiver
+            // pronto para a produção, utilize a ferramenta de build em https://modernizr.com para escolher somente os testes que precisa.
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                        "~/Scripts/modernizr-*"));
+
+            // mascara dos campos
+            bundles.Add(new ScriptBundle("~/bundles/mask").Include("~/Scripts/jquery.mask.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                        "~/Scripts/bootstrap.bundle.js",
+                        "~/Scripts/bootstrap.bundle.min.js",
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/respond.js"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                        "~/Content/bootstrap.css",
+                        "~/Content/site.css"));
 
         }
     }

@@ -54,6 +54,8 @@ public class SafirexContext : DbContext
 
     public System.Data.Entity.DbSet<Safirex.Models.ClassificacaoOrigem.Esfera> Esferas { get; set; }
 
+    public System.Data.Entity.DbSet<Safirex.Models.ClassificacaoOrigem.Gestao> Gestaos { get; set; }
+
     public System.Data.Entity.DbSet<Safirex.Models.ClassificacaoEstrutura.Governo> Governos { get; set; }
 
     public System.Data.Entity.DbSet<Safirex.Models.ClassificacaoEstrutura.Secretaria> Secretarias { get; set; }

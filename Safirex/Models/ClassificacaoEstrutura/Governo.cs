@@ -8,8 +8,8 @@ namespace Safirex.Models.ClassificacaoEstrutura
 {
     public class Governo
     {
-        public int EsferaId { get; set; }
-        public virtual Esfera Esfera { get; set; }
+        public int GestaoId { get; set; }
+        public virtual Gestao Gestao { get; set; }
         public int GovernoId { get; set; }
         public string Nome { get; set; }
     }

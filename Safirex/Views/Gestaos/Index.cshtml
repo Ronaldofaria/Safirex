@@ -1,0 +1,59 @@
+﻿@model PagedList.IPagedList<Safirex.Models.ClassificacaoOrigem.Gestao>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Cadastros - Pesquisa de Governo";
+}
+@using (Html.BeginForm())
+{
+    <div class="container-fluid">
+        <table>
+            <tr>
+                <th>
+                    <h4>@ViewBag.Title</h4>
+                </th>
+                <th>
+                    <div class="input-group">
+                        <span class="input-group-addon"></span>
+                        <input type="text" size="250" name="search" value="@ViewBag.search" class="form-control" placeholder="digite o texto de pesquisa" style="width:100%;" />
+                    </div>
+                </th>
+                <th>
+                    <button type="submit" formaction="@Url.Action("Index", "Gestaos")" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Digite o texto e clique aqui para pesquisar na base de dados.' class="btn btn-black-color btn-lg glyphicon glyphicon-search title"></button>
+                </th>
+                <th>
+                    <button type="submit" formaction="@Url.Action("Create", "Gestaos")" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Para incluir o novo registro clique aqui e será aberto uma nova tela de cadastro.' class="btn btn-success-color btn-lg glyphicon glyphicon-plus title"></button>
+                </th>
+            </tr>
+        </table>
+        <hr />
+        <div class="div-table-grid">
+            <table class="table-record table-hover">
+                <tr>
+                    <th>
+                        Gestão
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            <button type="submit" formaction="@Url.Action("Edit", "Gestaos", new { id = item.GestaoId })" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Para alterar o registro clique aqui e será aberto uma tela com os dados para alteração.' id="editItem" class="btn btn-primary-color btn-lg glyphicon glyphicon-pencil"></button>
+                            <button type="submit" formaction="@Url.Action("Details", "Gestaos", new { id = item.GestaoId })" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Para consultar o registro clique aqui e será apresentado a tela de consulta.' id="consultaItem" class="btn btn-default btn-lg glyphicon glyphicon-check"></button>
+                            <button type="submit" formaction="@Url.Action("Delete", "Gestaos", new { id = item.GestaoId })" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Para excluir o registro clique aqui e será solicitado a confirmação da operação.' id="deleteItem" class="btn btn-danger-color  btn-lg glyphicon glyphicon-trash"></button>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <hr />
+        <div data-toggle="tooltip" data-placement="left" title='Clique aqui para avançar a página ou voltar para anterior.'>
+            @Html.PagedListPager(Model, page => Url.Action("Index", null, new { page, search = ViewBag.search }))
+        </div>
+    </div>
+}

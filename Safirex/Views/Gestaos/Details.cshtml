@@ -1,0 +1,29 @@
+﻿@model Safirex.Models.ClassificacaoOrigem.Gestao
+
+@{
+    ViewBag.Title = "Cadastros - Consulta de Gestão";
+}
+<h4>@ViewBag.Title</h4>
+<hr />
+
+<div>
+    <h4>Gestao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+    </dl>
+</div>
+@using (Html.BeginForm())
+{
+    <hr />
+    <div class="col-md-offset-2">
+        <button formaction="@Url.Action("Index", "Gestaos")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Cancela a consulta do registro e retorna.' class="btn btn-warning btn-lg glyphicon glyphicon-remove"></button>
+    </div>
+}

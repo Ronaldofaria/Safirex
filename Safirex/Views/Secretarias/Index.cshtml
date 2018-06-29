@@ -18,12 +18,10 @@
                     <input type="text" size="250" name="search" value="@ViewBag.search" class="form-control" placeholder="digite o texto de pesquisa" style="width:100%;" />
                 </div>
             </th>
-            <th width="90px">
+            <th>
                 <button type="submit" formaction="@Url.Action("Index", "Secretarias")" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Digite o texto e clique aqui para pesquisar na base de dados.' class="btn btn-black-color btn-lg glyphicon glyphicon-search title"></button>
                 <button type="submit" formaction="@Url.Action("Create", "Secretarias")" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Para incluir o novo registro clique aqui e será aberto uma nova tela de cadastro.' class="btn btn-success-color btn-lg glyphicon glyphicon-plus title"></button>
-            
-                <input type='button' value='Voltar sempre para ultima pagina chamada' onclick='history.go(-1)'/>
-
+                <button type="submit" formaction="@Url.Action("RedirectToPrevious", "Secretarias")"  data-toggle="tooltip" data-placement="bottom" title='Cancela a operação e retorna para a página anterior.' class="btn btn-warning btn-lg glyphicon glyphicon-remove"></button>
             </th>
         </tr>
     </table>

@@ -89,7 +89,7 @@
         <div class="form-actions no-color">
             <div class="col-md-offset-2">
                 <button formaction="@Url.Action("Delete", "Secretarias")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Confirma a exclusão do registro e retorna.' value="Delete" class="btn btn-danger-color btn-lg glyphicon glyphicon-ok"></button>
-                <button formaction="@Url.Action("Index", "Secretarias")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Cancela a exclusão do registro e retorna.' class="btn btn-warning btn-lg glyphicon glyphicon-remove"></button>
+                <button formaction="@Url.Action("RedirectToPrevious", "Secretarias")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Cancela a operação e retorna para a página anterior.' class="btn btn-warning btn-lg glyphicon glyphicon-remove"></button>
             </div>
         </div>
     }

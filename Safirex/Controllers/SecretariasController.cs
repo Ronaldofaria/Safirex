@@ -18,8 +18,6 @@ namespace Safirex.Controllers
         public ActionResult Index(int? page, string search = "")
         {
 
-            Session["urlVolta"] = ((System.Web.HttpRequestWrapper)Request).RawUrl;
-
             ViewBag.search = search;
             ViewBag.page = page;
 
@@ -69,7 +67,7 @@ namespace Safirex.Controllers
             {
                 db.Secretarias.Add(secretaria);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToPrevious();
             }
 
             ViewBag.GovernoId = new SelectList(db.Governos, "GovernoId", "Nome", secretaria.GovernoId);
@@ -103,7 +101,7 @@ namespace Safirex.Controllers
             {
                 db.Entry(secretaria).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToPrevious();
             }
             ViewBag.GovernoId = new SelectList(db.Governos, "GovernoId", "Nome", secretaria.GovernoId);
             return View(secretaria);
@@ -132,7 +130,7 @@ namespace Safirex.Controllers
             Secretaria secretaria = db.Secretarias.Find(id);
             db.Secretarias.Remove(secretaria);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToPrevious();
         }
 
         protected override void Dispose(bool disposing)

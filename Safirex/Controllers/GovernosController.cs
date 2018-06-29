@@ -6,18 +6,27 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using PagedList;
 using Safirex.Models.ClassificacaoEstrutura;
+using Safirex.App_Start;
 
 namespace Safirex.Controllers
 {
     public class GovernosController : BaseController
     {
 
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            ViewBag.sender = sender.ToString();
+        }
+
         // GET: Governos
         public ActionResult Index(int? page, string search = "")
         {
 
+            
             ViewBag.search = search;
             ViewBag.page = page;
 
@@ -33,6 +42,7 @@ namespace Safirex.Controllers
             return View(model.ToPagedList(pageNumber, pageSize));
 
         }
+
         // GET: Governos/Details/5
         public ActionResult Details(int? id)
         {
@@ -64,9 +74,10 @@ namespace Safirex.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.Governos.Add(governo);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToPrevious();
             }
 
             ViewBag.GestaoId = new SelectList(db.Gestaos, "GestaoId", "Nome", governo.GestaoId);
@@ -100,7 +111,7 @@ namespace Safirex.Controllers
             {
                 db.Entry(governo).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToPrevious();
             }
             ViewBag.GestaoId = new SelectList(db.Gestaos, "GestaoId", "Nome", governo.GestaoId);
             return View(governo);
@@ -129,7 +140,7 @@ namespace Safirex.Controllers
             Governo governo = db.Governos.Find(id);
             db.Governos.Remove(governo);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToPrevious();
         }
 
         protected override void Dispose(bool disposing)

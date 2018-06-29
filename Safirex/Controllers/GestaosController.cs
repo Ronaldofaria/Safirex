@@ -66,7 +66,7 @@ namespace Safirex.Controllers
             {
                 db.Gestaos.Add(gestao);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToPrevious();
             }
 
             return View(gestao);
@@ -98,7 +98,7 @@ namespace Safirex.Controllers
             {
                 db.Entry(gestao).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToPrevious();
             }
             return View(gestao);
         }
@@ -126,7 +126,7 @@ namespace Safirex.Controllers
             Gestao gestao = db.Gestaos.Find(id);
             db.Gestaos.Remove(gestao);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToPrevious();
         }
 
         protected override void Dispose(bool disposing)

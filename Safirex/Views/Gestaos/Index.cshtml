@@ -23,6 +23,9 @@
                 <th>
                     <button type="submit" formaction="@Url.Action("Create", "Gestaos")" formmethod="get" data-toggle="tooltip" data-placement="bottom" title='Para incluir o novo registro clique aqui e será aberto uma nova tela de cadastro.' class="btn btn-success-color btn-lg glyphicon glyphicon-plus title"></button>
                 </th>
+                <th>
+                    <button formaction="@Url.Action("RedirectToPrevious", "Home")" type="submit" data-toggle="tooltip" data-placement="bottom" title='Cancela a operação e retorna para a página anterior.' class="btn btn-warning btn-lg glyphicon glyphicon-remove"></button>
+                </th>
             </tr>
         </table>
         <hr />

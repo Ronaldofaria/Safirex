@@ -67,6 +67,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -156,9 +157,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\CustomHtmlHelepers.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\HtmlRequestHelper.cs" />
     <Compile Include="App_Start\MeuManipuladorDeRota.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CachingObjects\CachingProviderBase.cs" />
+    <Compile Include="CachingObjects\GlobalCachingProvider.cs" />
+    <Compile Include="CachingObjects\IGlobalCachingProvider.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Cookies.cs" />
     <Compile Include="Controllers\EsferasController.cs" />
     <Compile Include="Controllers\GestaosController.cs" />
     <Compile Include="Controllers\GovernosController.cs" />
